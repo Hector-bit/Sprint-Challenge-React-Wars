@@ -1,4 +1,5 @@
 import React from "react";
+
 import {
     Card, CardImg, CardText, CardBody,
     CardTitle, CardSubtitle, Button, CardLink
@@ -7,11 +8,11 @@ import {
 const StarCard = props => {
         return (
             <div>
-              <Card>
-                <CardImg top width="100%" src="https://images-na.ssl-images-amazon.com/images/I/71q98aXxhJL._UL1500_.jpg" alt="Card image cap" />
+              <Card className="card_card">
+                {/* <CardImg className="characterImage" top width="100%" src="https://images-na.ssl-images-amazon.com/images/I/71q98aXxhJL._UL1500_.jpg" alt="Card image cap" /> */}
                 <CardBody>
                   <CardTitle>{props.name}</CardTitle>
-                  <CardSubtitle>Description</CardSubtitle>
+                  <CardSubtitle>Description:</CardSubtitle>
                   <CardText>{props.height}</CardText>
                   <CardText>{props.mass}</CardText>
                   <CardText>{props.hair_color}</CardText>

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
-import Card_Space from "./Card_Space";
+// import Card_Space from "./Card_Space";
 import axios from "axios";
+import StarCard from "./StarCard";
 // import {
 //     Card, CardImg, CardText, CardBody,
 //     CardTitle, CardSubtitle, Button
@@ -13,10 +14,16 @@ export default function CardGrid() {
 
     useEffect(() => {
         axios 
-            .get(`https://swapi.co/api/people/4/`)
+            .get(`https://swapi.co/api/people/`)
 
-            .then(response => {
-                const characterInfo = response.data;
+            .then (response => {
+                console.log(response.data.results)
+                let characterInfo = [];
+                response.data.results.map(e => {
+                    return characterInfo = (e);
+                });
+                // response.data.results.map(e =>{
+                // });
                 console.log('new data', characterInfo)
                 setSpaceCard(characterInfo);
             })
@@ -29,16 +36,21 @@ export default function CardGrid() {
             return(
                 <div>
                     {[spaceCard].map(item => {
-                        //console.log(Card_Space)
+                        console.log(item)
                         return(
-                            <Card_Space 
-                            copyright={item.title}
-                            hdurl={item.hdurl}
-                            date={item.date}
-                            explanation={item.explanation}
+                            <StarCard
+                            name={item.name}
+                            height={item.height}
+                            mass={item.mass}
+                            hair_color={item.hair_color}
+                            skin_color={item.skin_color}
+                            eye_color={item.eye_color}
+                            birth_year={item.birth_year}
                             />
                         )
                     })}
                 </div>
             )
 }
+
+
